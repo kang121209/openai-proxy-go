@@ -48,7 +48,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// 将原始请求头复制到新请求中
 	for headerKey, headerValues := range r.Header {
 		for _, headerValue := range headerValues {
-			if headerKey.ToLower() !='host' {
+			if string.ToLower(headerKey) !='host' {
 			    proxyReq.Header.Add(headerKey, headerValue)
 			}
 		}
